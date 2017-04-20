@@ -10,8 +10,6 @@
     "styleguide": "styleguidist build",
     "test": "npm run eslint:src && jest --coverage",
     "eslint:src": "eslint ./src ./examples ./*.js",
-    "eslint:fix": "eslint --fix",
-    "git:add": "git add",
     "lint-staged": "lint-staged",
     "deps": "npm-check -s",
     "deps:update": "npm-check -u",
@@ -21,8 +19,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint:fix",
-      "git:add"
+      "eslint --fix",
+      "git add"
     ],
     "*.{svg,png}": [
       "imagemin",
