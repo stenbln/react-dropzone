@@ -2042,17 +2042,17 @@ debug@2, debug@2.6.3, debug@^2.1.0, debug@^2.1.1, debug@^2.2.0:
   dependencies:
     ms "0.7.2"
 
-debug@2.2.0, debug@~2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
-  dependencies:
-    ms "0.7.1"
-
 debug@2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
+
+debug@~2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
+  dependencies:
+    ms "0.7.1"
 
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
@@ -2212,16 +2212,9 @@ diff@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
-doctrine@1.3.x:
+doctrine@1.3.x, doctrine@^1.2.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.3.0.tgz#13e75682b55518424276f7c173783456ef913d26"
-  dependencies:
-    esutils "^2.0.2"
-    isarray "^1.0.0"
-
-doctrine@1.5.0, doctrine@^1.2.2:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
@@ -2535,10 +2528,6 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@^10.0.0:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-10.0.1.tgz#f17d4e52992c1d45d1b7713efbcd5ecd0e7e0506"
-
 eslint-config-airbnb-base@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-8.0.0.tgz#c5e958a469ab8af76aff068b43d784e5afe74ca7"
@@ -2548,12 +2537,6 @@ eslint-config-airbnb@^12.0.0:
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-12.0.0.tgz#ab282b756a25f03d04ac264c24d673a08a803270"
   dependencies:
     eslint-config-airbnb-base "^8.0.0"
-
-eslint-config-airbnb@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-13.0.0.tgz#688d15d3c276c0c753ae538c92a44397d76ae46e"
-  dependencies:
-    eslint-config-airbnb-base "^10.0.0"
 
 eslint-config-okonet@^4.0.0:
   version "4.0.0"
@@ -2583,13 +2566,6 @@ eslint-import-resolver-node@^0.2.0:
     object-assign "^4.0.1"
     resolve "^1.1.6"
 
-eslint-module-utils@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.0.0.tgz#a6f8c21d901358759cdc35dbac1982ae1ee58bce"
-  dependencies:
-    debug "2.2.0"
-    pkg-dir "^1.0.0"
-
 eslint-plugin-flowtype@^2.19.0:
   version "2.32.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.32.1.tgz#bbee185dedf97e5f63ec975cdcddd199bd2a2501"
@@ -2617,22 +2593,7 @@ eslint-plugin-import@^1.16.0:
     pkg-dir "^1.0.0"
     pkg-up "^1.0.0"
 
-eslint-plugin-import@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.2.0.tgz#72ba306fad305d67c4816348a4699a4229ac8b4e"
-  dependencies:
-    builtin-modules "^1.1.1"
-    contains-path "^0.1.0"
-    debug "^2.2.0"
-    doctrine "1.5.0"
-    eslint-import-resolver-node "^0.2.0"
-    eslint-module-utils "^2.0.0"
-    has "^1.0.1"
-    lodash.cond "^4.3.0"
-    minimatch "^3.0.3"
-    pkg-up "^1.0.0"
-
-eslint-plugin-jsx-a11y@^2.2.2, eslint-plugin-jsx-a11y@^2.2.3:
+eslint-plugin-jsx-a11y@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.3.tgz#4e35cb71b8a7db702ac415c806eb8e8d9ea6c65d"
   dependencies:
@@ -2646,7 +2607,7 @@ eslint-plugin-prettier@^2.0.1:
   dependencies:
     requireindex "~1.1.0"
 
-eslint-plugin-react@^6.3.0, eslint-plugin-react@^6.7.1:
+eslint-plugin-react@^6.3.0:
   version "6.10.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-6.10.3.tgz#c5435beb06774e12c7db2f6abaddcbf900cd3f78"
   dependencies:
@@ -6282,7 +6243,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.1.0:
+prettier@^1.1.0, prettier@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.2.2.tgz#22d17c1132faaaea1f1d4faea31f19f7a1959f3e"
   dependencies:
