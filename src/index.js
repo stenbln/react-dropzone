@@ -10,9 +10,9 @@ const supportMultiple = (typeof document !== 'undefined' && document && document
   true;
 
 class Dropzone extends React.Component {
-  static onDocumentDragOver(e) {
+  static onDocumentDragOver(evt) {
     // allow the entire document to be a drag target
-    e.preventDefault();
+    evt.preventDefault();
   }
 
   constructor(props, context) {
@@ -57,30 +57,30 @@ class Dropzone extends React.Component {
     document.body.onfocus = null;
   }
 
-  onDocumentDrop(e) {
-    if (this.node.contains(e.target)) {
+  onDocumentDrop(evt) {
+    if (this.node.contains(evt.target)) {
       // if we intercepted an event for our instance, let it propagate down to the instance's onDrop handler
       return;
     }
-    e.preventDefault();
+    evt.preventDefault();
     this.dragTargets = [];
   }
 
-  onDragStart(e) {
+  onDragStart(evt) {
     if (this.props.onDragStart) {
-      this.props.onDragStart.call(this, e);
+      this.props.onDragStart.call(this, evt);
     }
   }
 
-  onDragEnter(e) {
-    e.preventDefault();
+  onDragEnter(evt) {
+    evt.preventDefault();
 
     // Count the dropzone and any children that are entered.
-    if (this.dragTargets.indexOf(e.target) === -1) {
-      this.dragTargets.push(e.target);
+    if (this.dragTargets.indexOf(evt.target) === -1) {
+      this.dragTargets.push(evt.target);
     }
 
-    const allFilesAccepted = this.allFilesAccepted(getDataTransferItems(e, this.props.multiple));
+    const allFilesAccepted = this.allFilesAccepted(getDataTransferItems(evt, this.props.multiple));
 
     this.setState({
       isDragActive: allFilesAccepted,
@@ -88,30 +88,30 @@ class Dropzone extends React.Component {
     });
 
     if (this.props.onDragEnter) {
-      this.props.onDragEnter.call(this, e);
+      this.props.onDragEnter.call(this, evt);
     }
   }
 
-  onDragOver(e) { // eslint-disable-line class-methods-use-this
-    e.preventDefault();
-    e.stopPropagation();
+  onDragOver(evt) { // eslint-disable-line class-methods-use-this
+    evt.preventDefault();
+    evt.stopPropagation();
     try {
-      e.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
+      evt.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
     } catch (err) {
       // continue regardless of error
     }
 
     if (this.props.onDragOver) {
-      this.props.onDragOver.call(this, e);
+      this.props.onDragOver.call(this, evt);
     }
     return false;
   }
 
-  onDragLeave(e) {
-    e.preventDefault();
+  onDragLeave(evt) {
+    evt.preventDefault();
 
     // Only deactivate once the dropzone and all children have been left.
-    this.dragTargets = this.dragTargets.filter(el => el !== e.target && this.node.contains(el));
+    this.dragTargets = this.dragTargets.filter(el => el !== evt.target && this.node.contains(el));
     if (this.dragTargets.length > 0) {
       return;
     }
@@ -122,18 +122,18 @@ class Dropzone extends React.Component {
     });
 
     if (this.props.onDragLeave) {
-      this.props.onDragLeave.call(this, e);
+      this.props.onDragLeave.call(this, evt);
     }
   }
 
-  onDrop(e) {
+  onDrop(evt) {
     const { onDrop, onDropAccepted, onDropRejected, multiple, disablePreview } = this.props;
-    const fileList = getDataTransferItems(e, multiple);
+    const fileList = getDataTransferItems(evt, multiple);
     const acceptedFiles = [];
     const rejectedFiles = [];
 
     // Stop default browser behavior
-    e.preventDefault();
+    evt.preventDefault();
 
     // Reset the counter along with the drag on a drop.
     this.dragTargets = [];
@@ -158,15 +158,15 @@ class Dropzone extends React.Component {
     });
 
     if (onDrop) {
-      onDrop.call(this, acceptedFiles, rejectedFiles, e);
+      onDrop.call(this, acceptedFiles, rejectedFiles, evt);
     }
 
     if (rejectedFiles.length > 0 && onDropRejected) {
-      onDropRejected.call(this, rejectedFiles, e);
+      onDropRejected.call(this, rejectedFiles, evt);
     }
 
     if (acceptedFiles.length > 0 && onDropAccepted) {
-      onDropAccepted.call(this, acceptedFiles, e);
+      onDropAccepted.call(this, acceptedFiles, evt);
     }
 
     // Reset drag state
@@ -178,13 +178,13 @@ class Dropzone extends React.Component {
     });
   }
 
-  onClick(e) {
+  onClick(evt) {
     const { onClick, disableClick } = this.props;
     if (!disableClick) {
-      e.stopPropagation();
+      evt.stopPropagation();
       this.open();
       if (onClick) {
-        onClick.call(this, e);
+        onClick.call(this, evt);
       }
     }
   }

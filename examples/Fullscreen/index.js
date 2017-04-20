@@ -67,7 +67,7 @@ export default class FullScreen extends React.Component {
           <h2>Dropped files</h2>
           <ul>
             {
-              files.map(f => <li>{f.name} - {f.size} bytes</li>)
+              files.map(file => <li>{file.name} - {file.size} bytes</li>)
             }
           </ul>
 

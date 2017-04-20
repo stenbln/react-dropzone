@@ -22,13 +22,13 @@ export default class Accept extends React.Component {
           <h2>Accepted files</h2>
           <ul>
             {
-              this.state.accepted.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+              this.state.accepted.map(file => <li key={file.name}>{file.name} - {file.size} bytes</li>)
             }
           </ul>
           <h2>Rejected files</h2>
           <ul>
             {
-              this.state.rejected.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+              this.state.rejected.map(file => <li key={file.name}>{file.name} - {file.size} bytes</li>)
             }
           </ul>
         </aside>
