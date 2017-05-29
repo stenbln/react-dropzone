@@ -185,6 +185,7 @@ class Dropzone extends React.Component {
   }
 
   onClick(e) {
+    console.log("dropzone", e.target);
     const { onClick, disableClick } = this.props;
     if (!disableClick) {
       e.stopPropagation();
